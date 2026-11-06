@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central Palace Hotel · João Monlevade</title>
+<meta name="description" content="Central Palace Hotel — conforto, praticidade e hospitalidade em João Monlevade há mais de 30 anos. Suítes, quartos, flats mobiliados e reservas pelo WhatsApp.">
+<meta name="theme-color" content="#0d0a08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/logo-2.webp" type="image/webp">
+<link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <img class="loader__logo" src="assets/logo-2.webp" alt="" width="238" height="69">
+    <span class="loader__bar"><i></i></span>
+  </div>
+</div>
+
+<!-- WebGL canvas (fundo 3D) -->
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+<!-- Navegação -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Central Palace Hotel — início"><img class="brand__logo" src="assets/logo-2.webp" alt="Central Palace Hotel" width="159" height="46"></a>
+  <nav class="nav__links" id="navLinks" aria-label="Principal">
+    <a href="#hotel">O Hotel</a>
+    <a href="#acomodacoes">Acomodações</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#flats">Flats</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <a class="btn btn--gold btn--sm nav__cta" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Central%20Palace%20Hotel." target="_blank" rel="noopener" data-magnetic>
+    <span>Reservar</span>
+  </a>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="inicio" data-state="hero">
+  <div class="hero__grid wrap">
+  <div class="hero__content">
+    <p class="eyebrow" data-intro><span class="line"></span>João Monlevade · Minas Gerais</p>
+    <h1 class="hero__title">
+      <span class="ln"><span>Conforto,</span></span>
+      <span class="ln"><span>praticidade e</span></span>
+      <span class="ln"><span><em>hospitalidade.</em></span></span>
+    </h1>
+    <p class="hero__lead" data-intro>Há mais de 30 anos, a qualidade é o nosso padrão. Um endereço onde tradição e modernidade se encontram — no coração de João Monlevade.</p>
+    <div class="hero__actions" data-intro>
+      <a class="btn btn--gold" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Central%20Palace%20Hotel." target="_blank" rel="noopener" data-magnetic><span>Faça sua reserva</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost" href="#hotel" data-magnetic><span>Descubra mais</span></a>
+    </div>
+  </div>
+
+  <div class="hero__photo" data-intro>
+    <div class="arch tilt" data-tilt="5">
+      <span class="arch__outline" aria-hidden="true"></span>
+      <div class="arch__img">
+        <img src="assets/front_hotel.webp" alt="Fachada do Central Palace Hotel, em João Monlevade" width="600" height="800" fetchpriority="high" data-parallax>
+        <span class="frame__glare"></span>
+      </div>
+      <div class="arch__tag"><i></i><span>Av. Getúlio Vargas, 5503<br>João Monlevade · MG</span></div>
+    </div>
+  </div>
+  </div>
+
+  <div class="hero__meta wrap" data-intro>
+    <div class="meta"><b data-count="30" data-suffix="+">0</b><span>anos de tradição</span></div>
+    <div class="meta"><b data-count="3">0</b><span>categorias de quarto</span></div>
+    <div class="meta"><b>Centro</b><span>de João Monlevade</span></div>
+  </div>
+
+  <a href="#hotel" class="scrollcue" aria-label="Rolar para baixo" data-intro><span></span>Role</a>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Suíte Master</span><i>✦</i><span>Luxo Especial</span><i>✦</i><span>Luxo</span><i>✦</i><span>Flats Mobiliados</span><i>✦</i><span>Café da Manhã Completo</span><i>✦</i><span>Estacionamento Coberto</span><i>✦</i><span>Academia</span><i>✦</i>
+    <span>Suíte Master</span><i>✦</i><span>Luxo Especial</span><i>✦</i><span>Luxo</span><i>✦</i><span>Flats Mobiliados</span><i>✦</i><span>Café da Manhã Completo</span><i>✦</i><span>Estacionamento Coberto</span><i>✦</i><span>Academia</span><i>✦</i>
+  </div>
+</div>
+
+<!-- O HOTEL -->
+<section class="story section" id="hotel" data-state="story">
+  <div class="wrap story__grid">
+    <div class="story__media" data-reveal="left">
+      <div class="frame tilt" data-tilt="6">
+        <img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-6.webp" alt="Áreas comuns do Central Palace Hotel" loading="lazy" data-parallax>
+        <span class="frame__glare"></span>
+      </div>
+      <div class="badge" data-float>
+        <b>30+</b><span>anos<br>de excelência</span>
+      </div>
+    </div>
+    <div class="story__text">
+      <p class="eyebrow" data-reveal><span class="line"></span>Nossa história</p>
+      <h2 class="h2" data-split>Tradição e modernidade em perfeita <em>harmonia</em></h2>
+      <p class="lead" data-reveal>O Central Palace Hotel nasceu com a missão de oferecer conforto e hospitalidade em João Monlevade. Com uma trajetória marcada pela excelência, nos tornamos referência na região.</p>
+      <p data-reveal>Cada detalhe — do lençol alinhado ao café da manhã preparado com carinho — foi pensado para que a sua estadia seja leve, segura e memorável, seja a negócios ou a lazer.</p>
+      <ul class="ticks" data-reveal>
+        <li>Atendimento próximo e personalizado</li>
+        <li>Localização central, perto de tudo</li>
+        <li>Estacionamento coberto e fechado</li>
+      </ul>
+      <a class="link" href="#acomodacoes" data-reveal>Conheça as acomodações <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ACOMODAÇÕES -->
+<section class="rooms section" id="acomodacoes" data-state="rooms">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow" data-reveal><span class="line"></span>Acomodações</p>
+      <h2 class="h2" data-split>Hospede-se com <em>conforto</em></h2>
+      <p class="section__sub" data-reveal>Três categorias pensadas para cada tipo de viagem — da suíte com hidromassagem ao quarto prático e econômico.</p>
+    </header>
+
+    <div class="rooms__grid">
+      <article class="room tilt" data-tilt="8" data-reveal>
+        <div class="room__img">
+          <img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/bedroom-3.webp" alt="Suíte Master" loading="lazy">
+          <span class="room__tag">Destaque</span>
+        </div>
+        <div class="room__body">
+          <span class="room__num">01</span>
+          <h3>Suíte Master</h3>
+          <p class="room__size">30 m²</p>
+          <p>A opção perfeita para quem busca sofisticação e exclusividade. Amplo apartamento com banheira de hidromassagem para dois.</p>
+          <ul class="chips"><li>Cama box</li><li>Hidromassagem p/ 2</li><li>TV de LED</li><li>Frigobar</li><li>Ar-condicionado</li></ul>
+          <a class="link" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20a%20Su%C3%ADte%20Master." target="_blank" rel="noopener">Reservar <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <span class="frame__glare"></span>
+      </article>
+
+      <article class="room tilt" data-tilt="8" data-reveal>
+        <div class="room__img">
+          <img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/bedroom-2.webp" alt="Quarto Luxo Especial" loading="lazy">
+        </div>
+        <div class="room__body">
+          <span class="room__num">02</span>
+          <h3>Luxo Especial</h3>
+          <p class="room__size">20 a 25 m²</p>
+          <p>Combinando conforto e funcionalidade, ideal para viagens a negócios ou lazer, com espaçosa cama box.</p>
+          <ul class="chips"><li>Cama box</li><li>Ar-condicionado</li><li>Frigobar</li><li>TV</li></ul>
+          <a class="link" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20o%20quarto%20Luxo%20Especial." target="_blank" rel="noopener">Reservar <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <span class="frame__glare"></span>
+      </article>
+
+      <article class="room tilt" data-tilt="8" data-reveal>
+        <div class="room__img">
+          <img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/bedroom-1.webp" alt="Quarto Luxo" loading="lazy">
+        </div>
+        <div class="room__body">
+          <span class="room__num">03</span>
+          <h3>Luxo</h3>
+          <p class="room__size">20 a 25 m²</p>
+          <p>Simplicidade e praticidade definem este quarto — uma opção mais econômica sem abrir mão do essencial.</p>
+          <ul class="chips"><li>Ventilador de teto</li><li>TV</li><li>Frigobar</li></ul>
+          <a class="link" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20o%20quarto%20Luxo." target="_blank" rel="noopener">Reservar <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <span class="frame__glare"></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services section" id="servicos" data-state="services">
+  <div class="wrap">
+    <header class="section__head section__head--split">
+      <div>
+        <p class="eyebrow" data-reveal><span class="line"></span>Nossos serviços</p>
+        <h2 class="h2" data-split>Cuidado em cada <em>detalhe</em></h2>
+      </div>
+      <p class="section__sub" data-reveal>Tudo o que você precisa para uma estadia tranquila, do café da manhã ao estacionamento seguro.</p>
+    </header>
+
+    <div class="svc__grid">
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="M6 32V16m0 10h36V18a4 4 0 0 0-4-4H20a8 8 0 0 0-8 8v4M6 36v-4m36 4v-4M6 32h36"/></svg>
+        <h3>Acomodações confortáveis</h3>
+        <p>Quartos exclusivos pensados para o seu descanso, com camas box e todo o conforto necessário.</p>
+        <span class="frame__glare"></span>
+      </article>
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="M10 18h24v10a10 10 0 0 1-10 10h-4a10 10 0 0 1-10-10V18Zm24 3h3a4 4 0 0 1 0 8h-3M18 8c0 3 3 3 3 6M25 8c0 3 3 3 3 6"/></svg>
+        <h3>Café da manhã completo</h3>
+        <p>Pães fresquinhos, bolos caseiros, frutas da estação e variedade de bebidas, preparado com carinho.</p>
+        <span class="frame__glare"></span>
+      </article>
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="M8 30v-6l4-9h24l4 9v6M8 30h32M8 30v6h5v-6m22 0v6h5v-6M14 25h.01M34 25h.01M12 15l-2 9m26-9 2 9"/></svg>
+        <h3>Estacionamento seguro</h3>
+        <p>Coberto e fechado, com acesso exclusivo para hóspedes — total tranquilidade para o seu veículo.</p>
+        <span class="frame__glare"></span>
+      </article>
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="M6 20v8m5-12v16m26-16v16m5-12v8M11 24h26"/></svg>
+        <h3>Academia equipada</h3>
+        <p>Diversos aparelhos, TV e Wi-Fi para você manter a rotina de treinos durante a estadia.</p>
+        <span class="frame__glare"></span>
+      </article>
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="m10 38 6-20 14 14-20 6Zm22-26v.01M38 20v.01M30 8l1 4m7 6 4-1M36 30l4 2M22 12l-2 3"/></svg>
+        <h3>Eventos e promoções</h3>
+        <p>Fique atento: pacotes especiais e descontos exclusivos para aproveitar ao máximo a sua estadia.</p>
+        <span class="frame__glare"></span>
+      </article>
+      <article class="svc tilt" data-tilt="10" data-reveal>
+        <svg class="svc__ico" viewBox="0 0 48 48"><path d="M6 24 24 8l18 16M10 22v18h28V22M20 40V28h8v12"/></svg>
+        <h3>Flats mobiliados</h3>
+        <p>O conforto de uma casa sem precisar mobiliar, na área central de João Monlevade.</p>
+        <span class="frame__glare"></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="gallery" id="galeria" data-state="gallery">
+  <div class="gallery__pin" id="galPin">
+    <header class="gallery__head wrap">
+      <p class="eyebrow"><span class="line"></span>Galeria</p>
+      <h2 class="h2">Explore o <em>Central Palace</em></h2>
+    </header>
+    <div class="gallery__track" id="galTrack">
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-1.webp" alt="Central Palace Hotel — imagem 1" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-2.webp" alt="Central Palace Hotel — imagem 2" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-3.webp" alt="Central Palace Hotel — imagem 3" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-4.webp" alt="Central Palace Hotel — imagem 4" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-5.webp" alt="Central Palace Hotel — imagem 5" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-6.webp" alt="Central Palace Hotel — imagem 6" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-7.webp" alt="Central Palace Hotel — imagem 7" loading="lazy"></figure>
+      <figure class="g"><img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/gallery-8.webp" alt="Central Palace Hotel — imagem 8" loading="lazy"></figure>
+    </div>
+    <div class="gallery__progress" aria-hidden="true"><i id="galBar"></i></div>
+  </div>
+</section>
+
+<!-- FLATS -->
+<section class="flats section" id="flats" data-state="flats">
+  <div class="wrap flats__grid">
+    <div class="flats__text">
+      <p class="eyebrow" data-reveal><span class="line"></span>Estadias prolongadas</p>
+      <h2 class="h2" data-split>Flats com cara de <em>casa</em></h2>
+      <p class="lead" data-reveal>Nossos flats oferecem o conforto de uma casa sem a necessidade de mobiliar, localizados na área central de João Monlevade — próximos aos principais pontos da cidade.</p>
+      <ul class="ticks" data-reveal>
+        <li>Totalmente mobiliados</li>
+        <li>Ideal para trabalho, mudança ou temporada</li>
+        <li>Estrutura e suporte do hotel</li>
+      </ul>
+      <a class="btn btn--gold" data-reveal data-magnetic href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20flats." target="_blank" rel="noopener"><span>Consultar disponibilidade</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="flats__media" data-reveal="right">
+      <div class="frame frame--tall tilt" data-tilt="6">
+        <img src="https://centralpalacehotel.com.br/wp-content/uploads/2025/01/flat_image.webp" alt="Flat do Central Palace Hotel" loading="lazy" data-parallax="0.08">
+        <span class="frame__glare"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="contact section" id="contato" data-state="contact">
+  <div class="wrap contact__grid">
+    <div class="contact__info">
+      <p class="eyebrow" data-reveal><span class="line"></span>Fale conosco</p>
+      <h2 class="h2" data-split>Vamos planejar a sua <em>estadia</em></h2>
+      <p class="lead" data-reveal>Tem alguma dúvida ou deseja mais informações? Nossa equipe terá o prazer de atender você e garantir que sua experiência no Central Palace Hotel seja perfeita.</p>
+
+      <ul class="infolist" data-reveal>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <div><small>Endereço</small><a href="https://www.google.com/maps/search/?api=1&query=Av.+Get%C3%BAlio+Vargas+5503+Carneirinhos+Jo%C3%A3o+Monlevade+MG" target="_blank" rel="noopener">Av. Getúlio Vargas, 5503<br>Carneirinhos · João Monlevade, MG</a></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+          <div><small>Telefones</small><a href="tel:+553138521818">(31) 3852-1818</a> · <a href="tel:+553138521919">(31) 3852-1919</a></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 20l1.4-4.6A8.5 8.5 0 1 1 8 18.7L3 20Z"/><path d="M9 9.5c.5 2 2.500 4 5 5l1.200-1.200-1.700-1-.8.600c-.8-.4-1.500-1.100-1.900-1.900l.6-.8-1-1.700L9 9.500Z"/></svg></span>
+          <div><small>WhatsApp · Reservas</small><a href="https://wa.me/5531986800200" target="_blank" rel="noopener">(31) 98680-0200</a></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+          <div><small>E-mail</small><a href="mailto:reservas@centralpalacehotel.com.br">reservas@centralpalacehotel.com.br</a></div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.500 6.500h.01"/></svg></span>
+          <div><small>Instagram</small><a href="https://www.instagram.com/centralpalacehotel/" target="_blank" rel="noopener">@centralpalacehotel</a></div>
+        </li>
+      </ul>
+    </div>
+
+    <form class="form" id="contactForm" data-reveal="right" novalidate>
+      <h3>Envie uma mensagem</h3>
+      <p class="form__hint">Ao enviar, abriremos o WhatsApp com a sua mensagem pronta.</p>
+      <div class="form__row">
+        <label class="field"><input type="text" name="nome" placeholder=" " required><span>Primeiro nome</span></label>
+        <label class="field"><input type="text" name="sobrenome" placeholder=" "><span>Último nome</span></label>
+      </div>
+      <div class="form__row">
+        <label class="field"><input type="email" name="email" placeholder=" " required><span>E-mail</span></label>
+        <label class="field"><input type="tel" name="telefone" placeholder=" "><span>Telefone</span></label>
+      </div>
+      <label class="field field--area"><textarea name="mensagem" rows="4" placeholder=" " required></textarea><span>Mensagem</span></label>
+      <button class="btn btn--gold btn--block" type="submit" data-magnetic><span>Enviar mensagem</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="form__status" id="formStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="#inicio" class="brand"><img class="brand__logo brand__logo--lg" src="assets/logo-2.webp" alt="Central Palace Hotel" width="210" height="61"></a>
+        <p>A qualidade é o nosso padrão há mais de 30 anos.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Institucional</h4>
+        <a href="#hotel">O Hotel</a><a href="#acomodacoes">Acomodações</a><a href="#flats">Flats</a><a href="#contato">Fale Conosco</a>
+      </div>
+      <div class="footer__col">
+        <h4>Contato</h4>
+        <a href="tel:+553138521818">(31) 3852-1818</a>
+        <a href="https://wa.me/5531986800200" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:reservas@centralpalacehotel.com.br">E-mail</a>
+        <a href="https://www.instagram.com/centralpalacehotel/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <form class="footer__news" id="newsForm">
+        <h4>Receba ofertas exclusivas</h4>
+        <div class="news">
+          <input type="email" placeholder="Seu e-mail" required aria-label="Seu e-mail">
+          <button type="submit" aria-label="Enviar"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </form>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Central Palace Hotel. Todos os direitos reservados.</span>
+      <span class="footer__legal"><a href="https://centralpalacehotel.com.br/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a><a href="https://centralpalacehotel.com.br/termos-de-uso/" target="_blank" rel="noopener">Termos de Uso</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5531986800200?text=Ol%C3%A1!%20Tenho%20d%C3%BAvidas%20sobre%20o%20Central%20Palace%20Hotel." target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M3 20l1.400-4.600A8.500 8.500 0 1 1 8 18.700L3 20Z"/><path d="M9 9.500c.5 2 2.500 4 5 5l1.200-1.200-1.700-1-.8.600c-.8-.4-1.500-1.100-1.900-1.900l.6-.8-1-1.700L9 9.500Z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/main.js?v=3"></script>
+</body>
+</html>
